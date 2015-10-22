@@ -2,7 +2,9 @@ import React from 'react';
 import { Link } from 'react-router';
 
 var Search = React.createClass({
-
+propTypes: {
+  children: React.PropTypes.object
+},
   getInitialState() {
     return {
       search: "",
@@ -22,6 +24,7 @@ var Search = React.createClass({
       order: 'hotness'
     }).then((tracks) => {
       this.setState({results: tracks});
+      console.log(tracks);
     });
   },
 
@@ -31,9 +34,9 @@ var Search = React.createClass({
         <h1>Search</h1>
         <form onSubmit={this.handleSubmit}>
           <input
-            type="search"
-            value={this.state.search}
-            onChange={this.handleChange}
+              type="search"
+              value={this.state.search}
+              onChange={this.handleChange}
           />
         </form>
 
@@ -46,7 +49,7 @@ var Search = React.createClass({
             return (
               <li key={result.id}>
                 <Link
-                  to={`/tracks/${result.id}`}>
+                    to={`/tracks/${result.id}`}>
                   {result.title}
                 </Link>
               </li>

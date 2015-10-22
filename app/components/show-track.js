@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import _ from 'underscore';
+import store from 'store'
 
 var ShowTrack = React.createClass({
   propTypes: {
@@ -9,7 +10,8 @@ var ShowTrack = React.createClass({
   },
 
   getDefaultProps() {
-    return {tracks: []};
+    return {tracks: []
+    };
   },
 
   getInitialState() {
@@ -40,6 +42,14 @@ var ShowTrack = React.createClass({
     this.forceUpdate();
   },
 
+  handleLikeSong(e) {
+    e.preventDefault();
+    store.getFavoritesCollection().create(
+    this.state.track
+
+  );
+  },
+
   render() {
     var tracks = this.props.tracks;
     var track = _.findWhere(tracks, {id: Number(this.props.params.id)});
@@ -58,6 +68,7 @@ var ShowTrack = React.createClass({
 
         {!!prev && <Link to={`/tracks/${prev.id}`}>Previous</Link>}
         {!!next && <Link to={`/tracks/${next.id}`}>Next</Link>}
+        <button onClick={this.handleLikeSong}>Like It!</button>
       </div>
     );
   }
