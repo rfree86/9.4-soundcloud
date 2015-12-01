@@ -1,31 +1,4 @@
-# react-webpack-scaffolding
+#9.4-soundcloud
+This assignment allowed some contiuned pratice using react components in combination with backbone collections.  Using the soundcloud API, I created a search feature for certain songs.  You can then listen the the songs, and add them to a seperate favorites collection.   
 
-#### How to get started
 
-1. Start your own project folder with a git clone then git init
-
-    ```sh
-    cd ~/Code/
-    hub clone jacobthemyth/react-webpack-scaffolding NEWPROJECT
-    cd NEWPROJECT
-    rm -rf .git
-    git init
-    git add .
-    git commit -m "Initial commit"
-    ```
-
-2. Install prerequisites
-
-    ```sh
-    npm install
-    ```
-
-3. Start watching for changes and develop it!
-
-    ```sh
-    gulp
-    ```
-
-#### License
-
-MIT.
